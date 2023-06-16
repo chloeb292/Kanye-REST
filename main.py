@@ -1,7 +1,3 @@
-"""
-# My first app
-Here's our first attempt at using data to create a table:
-"""
 
 import streamlit as st
 import requests
@@ -20,18 +16,18 @@ def print_quotes(num_quotes):
     for i in range(num_quotes):
         quote = get_quote()
         if quote is not None:
-            st.write(quote)
+            st.subheader(quote)
         else:
             st.write("Failed to fetch quote")
     
 
 st.title("Kanye's words of Divine Wisdom")
-st.image('https://media2.giphy.com/media/f5Rl5kM3cmAMVYQg9z/giphy.gif', caption='KANYE', use_column_width=True)
+st.sidebar.image('https://lens-storage.storage.googleapis.com/png/ecf7645295b44f239d5288831556a1bb', caption='KANYE', use_column_width=True)
 
 
-num_quotes = st.slider('Number of quotes', min_value=1, max_value=10)
+num_quotes = st.sidebar.slider('Number of quotes', min_value=1, max_value=10)
 
-if st.button('Try generating these again!'):
+if st.sidebar.button('Try generating these again!'):
     print_quotes(num_quotes)
 else:
     print_quotes(num_quotes)
